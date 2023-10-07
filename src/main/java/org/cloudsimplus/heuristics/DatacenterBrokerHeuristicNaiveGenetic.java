@@ -143,7 +143,13 @@ public class DatacenterBrokerHeuristicNaiveGenetic {
 	}
 
 	private void createNaiveGeneticHeuristic() {
-		heuristic = new CloudletToVmMappingNaiveGenetic(SA_INITIAL_TEMPERATURE, new UniformDistr(0, 1));
+		heuristic = new CloudletToVmMappingNaiveGenetic(SA_INITIAL_TEMPERATURE, 
+								new UniformDistr(0, 1),
+							   	POPULATION,
+							   	PARENTS,
+							   	MUTATIONS,
+							   	GENERATIONS,
+							   	MUTATION_PROBABILITY);
         heuristic.setColdTemperature(SA_COLD_TEMPERATURE)
                  .setCoolingRate(SA_COOLING_RATE)
                  .setSearchesByIteration(SA_NUMBER_OF_NEIGHBORHOOD_SEARCHES);
