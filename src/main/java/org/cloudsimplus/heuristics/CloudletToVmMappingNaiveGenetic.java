@@ -184,6 +184,7 @@ public class CloudletToVmMappingNaiveGenetic
 		Stack<CloudletToVmMappingSolution> descendants = new Stack<>();
 		IntStream.range(0, (int) (getParents()/2))
 			 .forEach(idx -> descendants.push(getDescendant(parentsList.get(idx*2), parentsList.get(idx*2+1))));
+		parentsList.clear();
 		return descendants;
 	}
 
@@ -217,7 +218,7 @@ public class CloudletToVmMappingNaiveGenetic
 		descendants.forEach(descendant -> {
 			for (int idx=0; idx<getPopulation(); idx++) {
 				if (individualsList.get(idx).getCost() >= descendant.getCost()) {
-					individualsList.add(idx, descendant);
+					individualsList.set(idx, descendant);
 					break;
 				}
 			}
@@ -268,8 +269,6 @@ public class CloudletToVmMappingNaiveGenetic
 
 	@Override
 	public void searchNextGeneration() {
-		System.out.println("ando aca en next");
-		System.out.println(initialSolution.getResult().isEmpty());
 		selectParents();
 		Stack<CloudletToVmMappingSolution> descendants = crossoverParents();
 		replacement(descendants);
