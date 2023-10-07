@@ -376,4 +376,12 @@ public class CloudletToVmMappingSolution implements HeuristicSolution<Map<Cloudl
 
         return selected;
     }
+
+    	/**
+	 * returns Vm where is the cloudlet
+	 * @param cloudlet
+	 */
+	public Vm getVm(Cloudlet cloudlet) {
+		return cloudletVmMap.get(cloudlet);
+	}
 }
