@@ -71,10 +71,11 @@ public class CloudletToVmMappingNaiveGenetic
     	@Override
     	public CloudletToVmMappingSolution getInitialSolution() {
         	if(!isThereInitialSolution() && isReadToGenerateInitialSolution()) {
-            		initialSolution = generateRandomSolution();
+            		//initialSolution = generateRandomSolution();
+			firstGeneration();
         	}
 
-        	return initialSolution;
+        	return initialSolution = getBestIndividual();
     	}
 
     	/**
@@ -156,7 +157,6 @@ public class CloudletToVmMappingNaiveGenetic
 		this.mutationProbability = mutationProbability;
 		this.individualsList = new ArrayList<>(population);
 		this.parentsList = new ArrayList<>(parents);
-		firstGeneration();
 	}
 
 	/**
@@ -164,7 +164,7 @@ public class CloudletToVmMappingNaiveGenetic
 	 */
 	private void firstGeneration() {
 		IntStream.range(0, getPopulation())
-			 .forEach(idx -> individualsList.add(idx, new CloudletToVmMappingSolution(this, ++solutions)));
+			 .forEach(idx -> individualsList.add(idx, generateRandomSolution()));
 	}	
 
 	/**
@@ -260,11 +260,16 @@ public class CloudletToVmMappingNaiveGenetic
 	}
 
 	public CloudletToVmMappingSolution getBestIndividual() {
-		return individualsList.get(0);
+		return individualsList
+			.stream()
+			.min(Comparator.comparingDouble(CloudletToVmMappingSolution::getCost))
+			.get();
 	}
 
 	@Override
 	public void searchNextGeneration() {
+		System.out.println("ando aca en next");
+		System.out.println(initialSolution.getResult().isEmpty());
 		selectParents();
 		Stack<CloudletToVmMappingSolution> descendants = crossoverParents();
 		replacement(descendants);
