@@ -5,6 +5,7 @@
 package org.cloudsimplus.heuristics;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Stack;
 import java.util.stream.IntStream;
@@ -273,7 +274,12 @@ public class CloudletToVmMappingNaiveGenetic
 	}
 
 	private void setBestSolution() {
-		setBestSolutionSoFar(individualsList.get(0));
+		setBestSolutionSoFar(
+			individualsList
+				.stream()
+				.min(Comparator.comparingDouble(CloudletToVmMappingSolution::getCost))
+				.get()
+		);
 	}
 
 	@Override
