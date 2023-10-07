@@ -80,6 +80,15 @@ public class DatacenterBrokerHeuristicNaiveGenetic {
      */
     private int createdHosts = 0;
 
+    /**
+     * Genetic Algorithm parameters.
+     */
+    public static final int POPULATION = 20;
+    public static final int PARENTS = 10;
+    public static final int MUTATIONS = 3;
+    public static final int GENERATIONS = 1000;
+    public static final double MUTATION_PROBABILITY = 0.01; 
+
     public static void main(String[] args) {
         new DatacenterBrokerHeuristicNaiveGenetic();
     }
