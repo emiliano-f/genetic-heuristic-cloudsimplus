@@ -268,11 +268,23 @@ public class CloudletToVmMappingNaiveGenetic
 		Stack<CloudletToVmMappingSolution> descendants = crossoverParents();
 		replacement(descendants);
 		mutation();
+		setBestSolution();
 		currentGeneration++;
+	}
+
+	private void setBestSolution() {
+		setBestSolutionSoFar(individualsList.get(0));
 	}
 
 	@Override
 	public boolean isToStopSearch() {
 		return currentGeneration < generations;
 	}
+
+    	@Override
+    	public void updateSystemState() {
+	    	LOGGER.debug(
+	        "{}: Best solution cost so far is {}, current system temperature is {}",
+            System.currentTimeMillis(), getBestSolutionSoFar().getCost(), getCurrentTemperature());
+    	}
 }

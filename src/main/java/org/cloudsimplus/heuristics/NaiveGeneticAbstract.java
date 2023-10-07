@@ -94,6 +94,7 @@ public abstract class NaiveGeneticAbstract<S extends HeuristicSolution<?>>
      	* Cools the system at a defined {@link #getCoolingRate() cooling rate}.
      	* @see #getCurrentTemperature()
      	*/
+	/*
     	@Override
     	public void updateSystemState() {
 	    	currentTemperature *= 1 - coolingRate;
