@@ -284,7 +284,7 @@ public class CloudletToVmMappingNaiveGenetic
 
 	@Override
 	public boolean isToStopSearch() {
-		return currentGeneration < generations;
+		return generations <= currentGeneration;
 	}
 
     	@Override
