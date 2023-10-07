@@ -384,4 +384,8 @@ public class CloudletToVmMappingSolution implements HeuristicSolution<Map<Cloudl
 	public Vm getVm(Cloudlet cloudlet) {
 		return cloudletVmMap.get(cloudlet);
 	}
+	
+	public int getSize() {
+		return cloudletVmMap.size();
+	}
 }
