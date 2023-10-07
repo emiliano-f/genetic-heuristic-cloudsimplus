@@ -102,4 +102,9 @@ public abstract class NaiveGeneticAbstract<S extends HeuristicSolution<?>>
 	protected void setCurrentTemperature(final double currentTemperature) {
 		this.currentTemperature = currentTemperature;
 	}
+
+	/**
+	 * Genetic Algorithm methods
+	 */
+	
 }

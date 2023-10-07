@@ -120,8 +120,9 @@ public abstract class HeuristicAbstract<S extends HeuristicSolution<?>>  impleme
 		final long startTime = System.currentTimeMillis();
 		setBestSolutionSoFar(getInitialSolution());
 		while (!isToStopSearch()) {
-            searchSolutionInNeighborhood();
-            updateSystemState();
+            		//searchSolutionInNeighborhood();
+			searchNextGeneration();
+            		updateSystemState();
 		}
 		setSolveTime((System.currentTimeMillis() - startTime)/1000.0);
 
@@ -153,4 +154,8 @@ public abstract class HeuristicAbstract<S extends HeuristicSolution<?>>  impleme
         this.neighborSolution = solution;
     }
 
+    /**
+     * Genetic implementation
+     */
+    public abstract void searchNextGeneration();
 }
