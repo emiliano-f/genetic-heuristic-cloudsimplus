@@ -47,6 +47,13 @@ public abstract class NaiveGeneticAbstract<S extends HeuristicSolution<?>>
 	NaiveGeneticAbstract(final ContinuousDistribution random, final Class<S> solutionClass) {
 		super(random, solutionClass);
 	}	
+
+
+	/**
+	 * Genetic Algorithm Modification
+	 */
+
+	
 	/**
      	* {@inheritDoc}
      	* <p>It is used the Boltzmann distribution to define the probability
