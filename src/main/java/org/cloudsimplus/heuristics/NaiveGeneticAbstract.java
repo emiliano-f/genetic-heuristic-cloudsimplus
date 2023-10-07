@@ -52,7 +52,6 @@ public abstract class NaiveGeneticAbstract<S extends HeuristicSolution<?>>
 	/**
 	 * Genetic Algorithm Modification
 	 */
-
 	
 	/**
      	* {@inheritDoc}
@@ -83,6 +82,7 @@ public abstract class NaiveGeneticAbstract<S extends HeuristicSolution<?>>
      	* @return true if the system is cold enough and solution search can be
      	* stopped, false otherwise
      	*/
+	/*
     	@Override
     	public boolean isToStopSearch() {
         	return currentTemperature <= coldTemperature;
@@ -110,8 +110,4 @@ public abstract class NaiveGeneticAbstract<S extends HeuristicSolution<?>>
 		this.currentTemperature = currentTemperature;
 	}
 
-	/**
-	 * Genetic Algorithm methods
-	 */
-	
 }

@@ -128,6 +128,7 @@ public class CloudletToVmMappingNaiveGenetic
 	private boolean flag = true;
 	private double avgPunctuation = 0;
 	private int mutationsApplied = 0;
+	private int currentGeneration = 0;
 
 	/**
 	 * 
@@ -267,5 +268,11 @@ public class CloudletToVmMappingNaiveGenetic
 		Stack<CloudletToVmMappingSolution> descendants = crossoverParents();
 		replacement(descendants);
 		mutation();
+		currentGeneration++;
+	}
+
+	@Override
+	public boolean isToStopSearch() {
+		return currentGeneration < generations;
 	}
 }
