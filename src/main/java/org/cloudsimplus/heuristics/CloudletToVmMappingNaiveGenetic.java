@@ -245,6 +245,7 @@ public class CloudletToVmMappingNaiveGenetic
 				if (individual.getCost() > avgPunctuation)
 					mutate(individual);
 				});
+		mutationsApplied = 0;
 	}
 
 	private void mutate(CloudletToVmMappingSolution individual) {
