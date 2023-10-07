@@ -118,4 +118,10 @@ public class CloudletToVmMappingSimulatedAnnealing
     public static int getSolutions() {
         return solutions;
     }
+
+    /**
+     * Genetic implementation
+     */
+    @Override
+    public void searchNextGeneration() {}
 }

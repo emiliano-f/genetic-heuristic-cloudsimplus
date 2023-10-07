@@ -259,4 +259,12 @@ public class CloudletToVmMappingNaiveGenetic
 	public CloudletToVmMappingSolution getBestIndividual() {
 		return individualsList.get(0);
 	}
+
+	@Override
+	public void searchNextGeneration() {
+		selectParents();
+		Stack<CloudletToVmMappingSolution> descendants = crossoverParents();
+		replacement(descendants);
+		mutation();
+	}
 }
